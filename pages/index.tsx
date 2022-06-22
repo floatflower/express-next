@@ -7,11 +7,9 @@ import { decrement, increment } from '@/store/counter';
 import axios from '@/utils/axios';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import useTranslation from 'next-translate/useTranslation'
+import Link from 'next/link';
 
 const Home: NextPage = () => {
-  const { t, lang } = useTranslation('common')
-  const example = t('example')
   const count = useSelector((state: RootState) => state.counter.value)
   const dispatch = useDispatch();
   const { locale } = useRouter();
@@ -27,7 +25,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Example />
-      {example}
+      <Link href="/example">Example Page</Link>
       <h1>Redux</h1>
       <div>
         <button
