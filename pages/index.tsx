@@ -24,6 +24,7 @@ const Home: NextPage = () => {
   
   return (
     <>
+      <i className="fa-regular fa-alien-8bit"></i>
       <Example />
       <Link href="/example">Example Page</Link>
       <h1>Redux</h1>
