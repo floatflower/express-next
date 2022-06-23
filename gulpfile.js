@@ -56,13 +56,13 @@ function prismaGenerate(cb) {
   })
 }
 
+exports['dev'] = function() {
+  watch('server/**/*', { ignoreInitial: false }, series(serverCompile, serverAssetsCopy, serverStart));  
+}
 exports['server:compile'] = serverCompile;
 exports['server:assets:copy'] = serverAssetsCopy;
 exports['server:build'] = series(serverCompile, serverAssetsCopy);
 exports['server:start'] = serverStart;
-exports['server:dev'] = function() {
-  watch('server/**/*', { ignoreInitial: false }, series(serverCompile, serverAssetsCopy, serverStart));  
-}
 exports['server:test'] = function(cb) {
   const command = spawn('npx', ['jest', `${path.join(__dirname, 'server')}`], { stdio: 'inherit' })
   command.on('close', () => {
