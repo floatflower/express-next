@@ -1,6 +1,6 @@
 import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next'
 import { io } from 'socket.io-client';
-import Example from '@/components/example';
+import { Example } from '@/components/example';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store/index';
 import { decrement, increment } from '@/store/counter';
